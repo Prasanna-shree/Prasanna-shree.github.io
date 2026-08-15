@@ -3,166 +3,767 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Prasanna Shree | Data Analytics Portfolio</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
+      background: #070b17;
+      color: #f5f7ff;
+      overflow-x: hidden;
     }
 
-    header {
-      background: #111827;
-      color: white;
+    /* Animated background */
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(150, 50, 255, 0.18), transparent 30%),
+        #070b17;
+    }
+
+    .blob {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      z-index: -1;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    .blob.one {
+      background: #00aaff;
+      top: 10%;
+      left: -100px;
+    }
+
+    .blob.two {
+      background: #8b5cf6;
+      right: -100px;
+      bottom: 10%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translate(0,0) scale(1);
+      }
+      50% {
+        transform: translate(80px,-50px) scale(1.2);
+      }
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(15px);
+      background: rgba(7,11,23,0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #63d8ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #63d8ff;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px 50px;
     }
 
-    header h1 {
-      font-size: 44px;
+    .hero-content {
+      max-width: 850px;
+      animation: appear 1.2s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hello {
+      color: #63d8ff;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #63d8ff, #9b7cff, #ff6ec7);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-size: 200%;
+      animation: gradient 4s infinite;
+    }
+
+    @keyframes gradient {
+      0%,100% {
+        background-position: 0%;
+      }
+      50% {
+        background-position: 100%;
+      }
+    }
+
+    .typing {
+      font-size: 25px;
+      color: #c6c9d6;
+      min-height: 35px;
+    }
+
+    .hero p {
+      margin: 25px auto;
+      max-width: 650px;
+      color: #9da4b8;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: linear-gradient(90deg, #00aaff, #8b5cf6);
+      color: white;
+      box-shadow: 0 0 25px rgba(0,170,255,0.3);
+    }
+
+    .secondary {
+      border: 1px solid #40506d;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
-    header p {
-      font-size: 20px;
-      color: #d1d5db;
+    .section-title p {
+      color: #9299ad;
     }
 
-    .container {
-      max-width: 1000px;
+    /* About */
+    .about {
+      max-width: 850px;
       margin: auto;
-      padding: 50px 20px;
+      text-align: center;
+      color: #b7bdcd;
+      line-height: 1.9;
+      font-size: 17px;
     }
 
-    section {
-      background: white;
-      margin-bottom: 30px;
-      padding: 35px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #111827;
-    }
-
+    /* Skills */
     .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .skill {
-      background: #e5e7eb;
-      padding: 8px 14px;
-      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      transition: 0.4s;
+    }
+
+    .skill:hover {
+      transform: translateY(-10px);
+      border-color: #63d8ff;
+      box-shadow: 0 0 30px rgba(99,216,255,0.15);
+    }
+
+    .skill-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .skill h3 {
+      color: #fff;
+    }
+
+    .skill p {
+      color: #8f97aa;
+      margin-top: 7px;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
     }
 
     .project {
-      border-left: 4px solid #111827;
-      padding-left: 20px;
+      position: relative;
+      padding: 30px;
+      border-radius: 22px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.025)
+      );
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      transition: 0.4s;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 18px;
-      background: #111827;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
+    .project::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #00aaff;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0;
+      transition: 0.4s;
     }
 
-    .button:hover {
-      opacity: 0.85;
+    .project:hover::before {
+      opacity: 0.3;
     }
 
+    .project:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: rgba(99,216,255,0.5);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .project-number {
+      color: #63d8ff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .project h3 {
+      font-size: 24px;
+      margin: 15px 0;
+    }
+
+    .project p {
+      color: #9da4b8;
+      line-height: 1.7;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: rgba(99,216,255,0.1);
+      color: #63d8ff;
+      padding: 6px 11px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat h3 {
+      font-size: 38px;
+      color: #63d8ff;
+    }
+
+    .stat p {
+      color: #9299ad;
+      margin-top: 8px;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact p {
+      color: #9da4b8;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 30px;
-      color: #6b7280;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #777f93;
+    }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media(max-width:700px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 80px 6%;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .typing {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Prasanna Shree</h1>
-    <p>Data Analytics | SQL | Power BI | Data Visualization</p>
-  </header>
+  <div class="background"></div>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
 
-  <main class="container">
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Prasanna Shree</div>
 
-    <section>
-      <h2>About Me</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <div class="hello">Hello, I'm</div>
+
+      <h1>
+        Prasanna <span class="gradient-text">Shree</span>
+      </h1>
+
+      <div class="typing" id="typing"></div>
+
       <p>
-        I am an aspiring data analyst interested in turning data into
-        meaningful business insights using SQL, Power BI, and data visualization.
+        I transform data into meaningful insights using analytics,
+        visualization and technology. Welcome to my digital portfolio.
       </p>
-    </section>
 
-    <section>
-      <h2>Skills</h2>
-
-      <div class="skills">
-        <span class="skill">SQL</span>
-        <span class="skill">PostgreSQL</span>
-        <span class="skill">Power BI</span>
-        <span class="skill">DAX</span>
-        <span class="skill">Data Analysis</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">Business Analysis</span>
+      <div class="buttons">
+        <a href="#projects" class="btn primary">Explore My Work</a>
+        <a href="#contact" class="btn secondary">Let's Connect</a>
       </div>
-    </section>
 
-    <section>
-      <h2>Projects</h2>
+    </div>
+  </section>
 
-      <div class="project">
+  <!-- About -->
+  <section id="about">
+    <div class="section-title reveal">
+      <h2>About Me</h2>
+      <p>A little about my journey</p>
+    </div>
+
+    <div class="about reveal">
+      <p>
+        I am passionate about Data Analytics and discovering meaningful
+        patterns hidden inside data. I enjoy working with dashboards,
+        databases and analytical tools to convert raw information into
+        clear and useful business insights.
+      </p>
+
+      <br>
+
+      <p>
+        My goal is to continuously improve my technical skills while
+        creating practical projects that solve real-world problems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-title reveal">
+      <h2>My Skills</h2>
+      <p>Tools and technologies I work with</p>
+    </div>
+
+    <div class="skills">
+
+      <div class="skill reveal">
+        <div class="skill-icon">📊</div>
+        <h3>Power BI</h3>
+        <p>Dashboard & Visualization</p>
+      </div>
+
+      <div class="skill reveal">
+        <div class="skill-icon">🗄️</div>
+        <h3>SQL</h3>
+        <p>Data Analysis & Queries</p>
+      </div>
+
+      <div class="skill reveal">
+        <div class="skill-icon">🐍</div>
+        <h3>Python</h3>
+        <p>Data Analysis</p>
+      </div>
+
+      <div class="skill reveal">
+        <div class="skill-icon">📈</div>
+        <h3>Data Analytics</h3>
+        <p>Insights & Reporting</p>
+      </div>
+
+      <div class="skill reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML & CSS</h3>
+        <p>Web Development</p>
+      </div>
+
+      <div class="skill reveal">
+        <div class="skill-icon">💻</div>
+        <h3>GitHub</h3>
+        <p>Version Control</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section>
+    <div class="stats">
+
+      <div class="stat reveal">
+        <h3>01+</h3>
+        <p>Analytics Projects</p>
+      </div>
+
+      <div class="stat reveal">
+        <h3>05+</h3>
+        <p>Technical Skills</p>
+      </div>
+
+      <div class="stat reveal">
+        <h3>100%</h3>
+        <p>Learning Mindset</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-title reveal">
+      <h2>Featured Projects</h2>
+      <p>Things I've been working on</p>
+    </div>
+
+    <div class="projects">
+
+      <div class="project reveal">
+        <div class="project-number">PROJECT 01</div>
+
         <h3>Superstore Sales & Profit Analysis</h3>
 
         <p>
-          An end-to-end data analytics project using PostgreSQL, SQL, and
-          Power BI to analyze sales performance, profitability, regional
-          performance, discount impact, and business opportunities.
+          An end-to-end sales and profit analysis dashboard designed
+          to understand sales performance, profitability, categories,
+          segments, regions and discount impact.
         </p>
+
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">Dashboard</span>
+          <span class="tag">Business Intelligence</span>
+        </div>
+      </div>
+
+
+      <div class="project reveal">
+        <div class="project-number">PROJECT 02</div>
+
+        <h3>Data Analytics Portfolio</h3>
 
         <p>
-          <strong>Key areas:</strong>
-          Sales & Profit Analysis, Sub-category Performance,
-          Regional Analysis, Discount Analysis, and What-If Analysis.
+          A personal portfolio website showcasing my analytics journey,
+          technical skills, projects and learning experiences.
         </p>
 
-        <a
-          class="button"
-          href="https://github.com/Prasanna-shree/superstore-sales-profit-analysis"
-          target="_blank">
-          View Project on GitHub
-        </a>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
       </div>
-    </section>
 
-    <section>
-      <h2>Contact</h2>
+
+      <div class="project reveal">
+        <div class="project-number">PROJECT 03</div>
+
+        <h3>Future Analytics Project</h3>
+
+        <p>
+          More data-driven projects and interactive dashboards will be
+          added here as I continue learning and building.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Coming Soon</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+
+    <div class="section-title reveal">
+      <h2>Let's Connect</h2>
+      <p>Have an opportunity or just want to say hello?</p>
+    </div>
+
+    <div class="contact reveal">
 
       <p>
-        GitHub:
-        <a href="https://github.com/Prasanna-shree" target="_blank">
-          github.com/Prasanna-shree
-        </a>
+        I'm always interested in learning, building projects and
+        connecting with people interested in data and technology.
       </p>
-    </section>
 
-  </main>
+      <div class="buttons">
+
+        <a
+          href="https://github.com/Prasanna-shree"
+          target="_blank"
+          class="btn primary"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="mailto:your-email@example.com"
+          class="btn secondary"
+        >
+          Email Me
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
 
   <footer>
-    © 2026 Prasanna Shree — Data Analytics Portfolio
+    © 2026 Prasanna Shree • Data Analytics Portfolio
   </footer>
+
+
+  <script>
+
+    /* Typing animation */
+
+    const words = [
+      "Data Analyst",
+      "Power BI Enthusiast",
+      "SQL Learner",
+      "Data Visualization Enthusiast"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typing = document.getElementById("typing");
+
+    function typeEffect() {
+
+      const currentWord = words[wordIndex];
+
+      if (!deleting) {
+        typing.textContent =
+          currentWord.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+          deleting = true;
+
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+
+      } else {
+
+        typing.textContent =
+          currentWord.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+
+          wordIndex++;
+
+          if (wordIndex === words.length) {
+            wordIndex = 0;
+          }
+        }
+      }
+
+      setTimeout(typeEffect, deleting ? 60 : 100);
+    }
+
+    typeEffect();
+
+
+    /* Scroll reveal */
+
+    function revealOnScroll() {
+
+      const reveals =
+        document.querySelectorAll(".reveal");
+
+      reveals.forEach(element => {
+
+        const windowHeight =
+          window.innerHeight;
+
+        const elementTop =
+          element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add("active");
+        }
+
+      });
+    }
+
+    window.addEventListener(
+      "scroll",
+      revealOnScroll
+    );
+
+    revealOnScroll();
+
+  </script>
 
 </body>
 </html>
