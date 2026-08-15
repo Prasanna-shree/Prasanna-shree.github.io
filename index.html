@@ -6,463 +6,223 @@
 <title>Prasanna Shree | Aspiring Data Analyst</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-
-:root{
-  --bg:#050816;
-  --card:rgba(255,255,255,.055);
-  --line:rgba(255,255,255,.11);
-  --text:#f5f7ff;
-  --muted:#9ca7bd;
-  --cyan:#61dcff;
-  --purple:#8b7cff;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-  font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-body:before,body:after{
-  content:"";
-  position:fixed;
-  width:420px;height:420px;border-radius:50%;
-  filter:blur(100px);
-  opacity:.2;
-  z-index:-2;
-  animation:orb 9s ease-in-out infinite alternate;
-}
-body:before{background:#00bfff;top:-170px;left:-170px}
-body:after{background:#8b5cf6;right:-180px;bottom:-180px;animation-delay:2s}
-
-@keyframes orb{
-  to{transform:translate(120px,90px) scale(1.25)}
+body {
+    font-family: Arial, sans-serif;
+    background: #070b16;
+    color: white;
+    line-height: 1.6;
 }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;width:100%;
-  padding:18px 7%;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(5,8,22,.72);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
-  z-index:1000;
-}
-.logo{font-size:22px;font-weight:800;color:var(--cyan)}
-nav ul{display:flex;gap:24px;list-style:none}
-nav a{color:#dce1ee;text-decoration:none;font-size:14px;transition:.3s}
-nav a:hover{color:var(--cyan)}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  padding:120px 7% 70px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:50px;
-  align-items:center;
-  max-width:1400px;
-  margin:auto;
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px 7%;
+    background: #070b16;
+    border-bottom: 1px solid #20283b;
+    text-align: right;
 }
 
-.badge{
-  display:inline-block;
-  padding:9px 15px;
-  border:1px solid #61dcff55;
-  border-radius:30px;
-  color:var(--cyan);
-  background:#61dcff0b;
-  margin-bottom:20px;
-  animation:pulse 2.5s infinite;
-}
-@keyframes pulse{50%{box-shadow:0 0 25px #61dcff22}}
-
-.hero h1{
-  font-size:clamp(50px,7vw,82px);
-  line-height:.98;
-  margin-bottom:18px;
-}
-.gradient{
-  background:linear-gradient(90deg,var(--cyan),var(--purple),#ff71c8);
-  -webkit-background-clip:text;
-  color:transparent;
-  background-size:200%;
-  animation:gradient 4s infinite alternate;
-}
-@keyframes gradient{to{background-position:100%}}
-
-.typing{font-size:25px;color:#d2d7e5;min-height:35px}
-.hero-text{
-  color:var(--muted);
-  line-height:1.8;
-  max-width:650px;
-  margin:20px 0;
-}
-.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:25px}
-.btn{
-  padding:13px 23px;border-radius:30px;
-  text-decoration:none;font-weight:700;
-  transition:.35s;display:inline-block;
-}
-.primary{
-  color:white;
-  background:linear-gradient(90deg,#009fe3,#795bea);
-  box-shadow:0 0 30px #009fe322;
-}
-.secondary{color:white;border:1px solid #ffffff25}
-.btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px #0008}
-
-/* HERO VISUAL */
-.visual{
-  height:470px;
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+nav a {
+    color: #b9c3d8;
+    text-decoration: none;
+    margin-left: 22px;
 }
 
-.glow{
-  position:absolute;
-  width:300px;height:300px;
-  border-radius:50%;
-  background:#61dcff;
-  filter:blur(90px);
-  opacity:.14;
+nav a:hover {
+    color: #61dcff;
 }
 
-.desk-scene{
-  position:relative;
-  width:390px;height:350px;
-  animation:floatScene 4s ease-in-out infinite alternate;
-}
-@keyframes floatScene{to{transform:translateY(-12px)}}
-
-.window{
-  position:absolute;
-  width:240px;height:155px;
-  top:15px;left:75px;
-  border:7px solid #252d43;
-  border-radius:14px;
-  background:linear-gradient(135deg,#122b43,#171437);
-  box-shadow:0 0 50px #61dcff15;
-}
-.window:before{
-  content:"";
-  position:absolute;
-  width:100%;height:2px;
-  top:50%;background:#61dcff22;
-}
-.window:after{
-  content:"";
-  position:absolute;
-  height:100%;width:2px;
-  left:50%;background:#61dcff22;
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
 }
 
-.screen{
-  position:absolute;
-  width:180px;height:115px;
-  top:75px;left:105px;
-  background:#0b1122;
-  border:5px solid #30394f;
-  border-radius:9px;
-  z-index:3;
-  box-shadow:0 15px 40px #0009;
-}
-.screen:before{
-  content:"DATA";
-  position:absolute;
-  top:20px;left:20px;
-  color:#61dcff;
-  font-weight:bold;
-  letter-spacing:3px;
-}
-.screen:after{
-  content:"▂ ▅ ▃ ▇ ▅";
-  position:absolute;
-  left:20px;bottom:22px;
-  color:#8b7cff;
-  letter-spacing:6px;
+.hero small {
+    color: #61dcff;
+    font-size: 18px;
 }
 
-.monitor-stand{
-  position:absolute;
-  width:35px;height:50px;
-  background:#30394f;
-  left:178px;top:185px;
-  z-index:2;
-}
-.monitor-base{
-  position:absolute;
-  width:90px;height:10px;
-  border-radius:10px;
-  background:#30394f;
-  left:150px;top:230px;
-  z-index:2;
+.hero h1 {
+    font-size: 70px;
+    margin: 10px 0;
 }
 
-.person{
-  position:absolute;
-  left:75px;top:135px;
-  width:240px;height:190px;
-  z-index:5;
+.hero h2 {
+    color: #aeb8cc;
+    font-weight: normal;
+    font-size: 28px;
 }
 
-.head{
-  position:absolute;
-  width:58px;height:58px;
-  border-radius:50%;
-  background:#d8956c;
-  left:82px;top:0;
-}
-.hair{
-  position:absolute;
-  width:63px;height:35px;
-  border-radius:40px 40px 12px 12px;
-  background:#241c27;
-  left:79px;top:-4px;
-}
-.body-person{
-  position:absolute;
-  width:105px;height:105px;
-  border-radius:45px 45px 20px 20px;
-  background:linear-gradient(135deg,#5d63d9,#343c91);
-  left:57px;top:50px;
-}
-.arm{
-  position:absolute;
-  width:95px;height:18px;
-  border-radius:20px;
-  background:#d8956c;
-  left:115px;top:90px;
-  transform:rotate(17deg);
-}
-.arm2{
-  position:absolute;
-  width:75px;height:16px;
-  border-radius:20px;
-  background:#d8956c;
-  left:38px;top:92px;
-  transform:rotate(25deg);
-}
-.chair{
-  position:absolute;
-  width:135px;height:165px;
-  border-radius:35px 35px 20px 20px;
-  border:13px solid #222a3d;
-  left:42px;top:70px;
-  z-index:-1;
-}
-.seat{
-  position:absolute;
-  width:130px;height:22px;
-  background:#222a3d;
-  left:45px;top:225px;
-  border-radius:20px;
-}
-.desk{
-  position:absolute;
-  width:330px;height:20px;
-  background:#30394f;
-  left:30px;bottom:35px;
-  border-radius:12px;
-}
-.leg1,.leg2{
-  position:absolute;
-  width:13px;height:100px;
-  background:#252d43;
-  bottom:-65px;
-}
-.leg1{left:70px}.leg2{right:70px}
-
-.float-card{
-  position:absolute;
-  padding:12px 16px;
-  border:1px solid var(--line);
-  background:#0b1122dd;
-  backdrop-filter:blur(12px);
-  border-radius:15px;
-  color:#cbd2e2;
-  box-shadow:0 15px 40px #0006;
-  animation:cardFloat 3s ease-in-out infinite alternate;
-}
-.card1{top:70px;right:0}
-.card2{bottom:75px;left:0;animation-delay:1s}
-@keyframes cardFloat{to{transform:translateY(-10px)}}
-
-/* SECTIONS */
-section{padding:100px 7%;max-width:1400px;margin:auto}
-.title{text-align:center;margin-bottom:50px}
-.title h2{font-size:42px;margin-bottom:10px}
-.title p{color:#8994aa}
-
-.about{
-  max-width:850px;
-  margin:auto;
-  text-align:center;
-  color:var(--muted);
-  line-height:1.9;
-  font-size:17px;
+.hero p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #929db4;
 }
 
-/* EDUCATION / INTERNSHIP */
-.single-card{
-  max-width:850px;
-  margin:auto;
-  padding:32px;
-  border:1px solid var(--line);
-  background:var(--card);
-  border-radius:24px;
-  transition:.4s;
-}
-.single-card:hover{
-  transform:translateY(-8px);
-  border-color:#61dcff66;
-  box-shadow:0 20px 50px #0007;
-}
-.single-card h3{font-size:25px;margin-bottom:10px}
-.single-card .accent{color:var(--cyan);margin-bottom:12px}
-.single-card p{color:var(--muted);line-height:1.8}
-.date{color:#778198;font-size:14px;margin-top:14px}
-
-/* SKILLS */
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:18px;
-}
-.skill{
-  padding:25px 15px;
-  text-align:center;
-  border:1px solid var(--line);
-  background:var(--card);
-  border-radius:20px;
-  transition:.4s;
-}
-.skill:hover{
-  transform:translateY(-10px) rotateX(5deg);
-  border-color:#61dcff77;
-  box-shadow:0 15px 40px #0006;
-}
-.icon{font-size:35px;margin-bottom:10px}
-.skill h3{font-size:17px}
-
-/* PROJECT */
-.project{
-  max-width:950px;
-  margin:auto;
-  padding:38px;
-  border:1px solid var(--line);
-  border-radius:28px;
-  background:linear-gradient(145deg,#ffffff0b,#ffffff02);
-  transition:.5s;
-}
-.project:hover{
-  transform:translateY(-12px);
-  border-color:#61dcff77;
-  box-shadow:0 25px 70px #0008;
-}
-.project-number{color:var(--cyan);font-size:13px;font-weight:bold}
-.project h3{font-size:30px;margin:13px 0}
-.project p{color:var(--muted);line-height:1.8}
-.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.tag{
-  padding:7px 13px;border-radius:20px;
-  color:var(--cyan);background:#61dcff0d;
-  border:1px solid #61dcff20;font-size:13px;
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    margin: 10px 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    background: #176b91;
 }
 
-/* CERTIFICATIONS */
-.certs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.cert{
-  padding:28px;
-  border:1px solid var(--line);
-  background:var(--card);
-  border-radius:22px;
-  transition:.4s;
-}
-.cert:hover{
-  transform:translateY(-9px);
-  border-color:#61dcff66;
-}
-.cert h3{font-size:19px;margin-bottom:10px}
-.cert p{color:#8994aa;font-size:14px;line-height:1.6}
-.cert a{
-  display:inline-block;
-  margin-top:17px;
-  color:var(--cyan);
-  text-decoration:none;
-  font-weight:bold;
+.btn:hover {
+    background: #238dbb;
 }
 
-/* CONTACT */
-.contact{text-align:center}
-.contact p{color:var(--muted);line-height:1.8}
-.socials{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-.social{
-  width:54px;height:54px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:50%;
-  border:1px solid var(--line);
-  background:var(--card);
-  color:white;
-  text-decoration:none;
-  font-size:21px;
-  transition:.35s;
-}
-.social:hover{
-  transform:translateY(-7px) scale(1.08);
-  border-color:var(--cyan);
-  box-shadow:0 0 25px #61dcff33;
+section {
+    padding: 90px 8%;
+    max-width: 1100px;
+    margin: auto;
 }
 
-/* REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(45px);
-  transition:.8s ease;
-}
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
+.title {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-footer{
-  text-align:center;
-  padding:30px;
-  border-top:1px solid var(--line);
-  color:#707b91;
+.title h2 {
+    font-size: 40px;
 }
 
-/* MOBILE */
-@media(max-width:850px){
-  nav ul{display:none}
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .hero-text{margin:20px auto}
-  .buttons{justify-content:center}
-  .visual{transform:scale(.85);margin-top:-30px}
+.title p {
+    color: #8994aa;
 }
-@media(max-width:500px){
-  section{padding:75px 6%}
-  .hero h1{font-size:52px}
-  .visual{transform:scale(.7);margin-left:-55px;margin-right:-55px}
-  .project,.single-card{padding:25px}
+
+.card {
+    background: #101728;
+    border: 1px solid #222c42;
+    border-radius: 18px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.accent {
+    color: #61dcff;
+    margin-bottom: 12px;
+}
+
+.muted {
+    color: #9ca7bd;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skill {
+    padding: 12px 18px;
+    border: 1px solid #28344c;
+    border-radius: 25px;
+    background: #101728;
+    color: #cbd4e5;
+}
+
+.project {
+    border-left: 4px solid #61dcff;
+}
+
+.tags {
+    margin-top: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px;
+    border-radius: 15px;
+    background: #17283b;
+    color: #61dcff;
+    font-size: 13px;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cert a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #61dcff;
+    text-decoration: none;
+}
+
+.contact {
+    text-align: center;
+}
+
+.socials {
+    margin-top: 25px;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    padding: 12px 18px;
+    border: 1px solid #29344a;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #68748c;
+    border-top: 1px solid #20283b;
+}
+
+@media(max-width:700px) {
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 7px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -470,161 +230,252 @@ footer{
 <body>
 
 <nav>
-  <div class="logo">Prasanna Shree</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#internship">Internship</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#internship">Internship</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
+    <div>
+        <small>HELLO, I'M</small>
 
-  <div class="hero-content">
-    <div class="badge">✦ Open to opportunities</div>
+        <h1>Prasanna Shree</h1>
 
-    <h1>
-      Hi, I'm<br>
-      <span class="gradient">Prasanna Shree</span>
-    </h1>
+        <h2>Aspiring Data Analyst</h2>
 
-    <div class="typing" id="typing"></div>
+        <p>
+            I enjoy transforming data into meaningful insights through
+            analytics, visualization and technology.
+        </p>
 
-    <p class="hero-text">
-      A BCA graduate passionate about data analytics, visualization
-      and technology — turning raw data into meaningful insights
-      and useful stories.
-    </p>
+        <a class="btn" href="#projects">Explore My Work</a>
 
-    <div class="buttons">
-      <a href="#projects" class="btn primary">Explore My Work ↓</a>
-      <a href="resume.pdf" download class="btn secondary">Download Resume ↓</a>
+        <a class="btn" href="resume.pdf" download>
+            Download Resume
+        </a>
     </div>
-  </div>
-
-  <!-- CSS VISUAL -->
-  <div class="visual">
-    <div class="glow"></div>
-
-    <div class="float-card card1">📊 Data Analysis</div>
-    <div class="float-card card2">💡 Insights</div>
-
-    <div class="desk-scene">
-
-      <div class="window"></div>
-
-      <div class="screen"></div>
-      <div class="monitor-stand"></div>
-      <div class="monitor-base"></div>
-
-      <div class="chair"></div>
-
-      <div class="person">
-        <div class="hair"></div>
-        <div class="head"></div>
-        <div class="body-person"></div>
-        <div class="arm"></div>
-        <div class="arm2"></div>
-      </div>
-
-      <div class="desk"></div>
-      <div class="leg1"></div>
-      <div class="leg2"></div>
-
-    </div>
-  </div>
-
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="title reveal">
-    <h2>About Me</h2>
-    <p>Curious mind. Analytical thinking. Continuous learning.</p>
-  </div>
+    <div class="title">
+        <h2>About Me</h2>
+        <p>Turning data into meaningful insights</p>
+    </div>
 
-  <div class="about reveal">
-    <p>
-      I am an aspiring data analyst and BCA graduate who enjoys
-      exploring data, finding patterns and transforming information
-      into clear and meaningful insights.
-    </p>
-    <br>
-    <p>
-      I am building my skills across SQL, PostgreSQL, Power BI,
-      Python, Excel and data visualization while creating practical
-      projects that connect technology with real-world problems.
-    </p>
-  </div>
+    <div class="card">
+        <p class="muted">
+            I am an aspiring data analyst and BCA graduate with a strong
+            interest in data analytics, visualization and technology.
+            I enjoy exploring data, identifying patterns and presenting
+            insights in a clear and meaningful way.
+        </p>
+
+        <br>
+
+        <p class="muted">
+            I am continuously developing my skills in SQL, PostgreSQL,
+            Power BI, Python, Excel and data visualization while building
+            practical projects and expanding my technical knowledge.
+        </p>
+    </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
-  <div class="title reveal">
-    <h2>Education</h2>
-    <p>My academic journey</p>
-  </div>
-
-  <div class="single-card reveal">
-    <h3>Bachelor of Computer Applications (BCA)</h3>
-    <div class="accent">
-      Dr. MGR-Janaki College of Arts and Science for Women
+    <div class="title">
+        <h2>Education</h2>
+        <p>Academic background</p>
     </div>
-    <p>
-      Computer Applications graduate with an interest in
-      data analytics, technology and problem solving.
-    </p>
-    <div class="date">2025</div>
-  </div>
+
+    <div class="card">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <div class="accent">
+            Dr. MGR-Janaki College of Arts and Science for Women
+        </div>
+
+        <p class="muted">Graduated in 2025</p>
+    </div>
 </section>
 
-<!-- INTERNSHIP -->
 <section id="internship">
-  <div class="title reveal">
-    <h2>Internship</h2>
-    <p>Hands-on experience</p>
-  </div>
-
-  <div class="single-card reveal">
-    <h3>Web Development Intern</h3>
-    <div class="accent">8Queens Software Technologies</div>
-
-    <p>
-      Worked on web development tasks and built a website using
-      HTML, CSS and JavaScript, gaining practical exposure to
-      front-end development, page structure, styling and
-      interactive web elements.
-    </p>
-
-    <div class="date">
-      June 1, 2024 — July 1, 2024
+    <div class="title">
+        <h2>Internship</h2>
+        <p>Professional experience</p>
     </div>
-  </div>
+
+    <div class="card">
+        <h3>Web Development Intern</h3>
+
+        <div class="accent">
+            8Queens Software Technologies
+        </div>
+
+        <p class="muted">
+            Worked on web development and built a website using HTML,
+            CSS and JavaScript. Gained practical exposure to webpage
+            structure, styling, responsive design and interactive
+            web elements.
+        </p>
+
+        <p class="muted">
+            June 1, 2024 — July 1, 2024
+        </p>
+    </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-  <div class="title reveal">
-    <h2>Skills</h2>
-    <p>Tools and technologies I work with</p>
-  </div>
+    <div class="title">
+        <h2>Skills</h2>
+        <p>Tools and technologies</p>
+    </div>
 
-  <div class="skills">
+    <div class="skills">
+        <span class="skill">SQL</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Python</span>
+        <span class="skill">Tableau</span>
+        <span class="skill">Java</span>
+        <span class="skill">Excel</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Data Analytics</span>
+        <span class="skill">Data Visualization</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">SAP</span>
+    </div>
+</section>
 
-    <div class="skill reveal"><div class="icon">🗄️</div><h3>SQL</h3></div>
-    <div class="skill reveal"><div class="icon">🐘</div><h3>PostgreSQL</h3></div>
-    <div class="skill reveal"><div class="icon">📊</div><h3>Power BI</h3></div>
-    <div class="skill reveal"><div class="icon">🐍</div><h3>Python</h3></div>
-    <div class="skill reveal"><div class="icon">📈</div><h3>Tableau</h3></div>
-    <div class="skill reveal"><div class="icon">☕</div><h3>Java</h3></div>
-    <div class="skill reveal"><div class="icon">📗</div><h3>Excel</h3></div>
-    <div class="skill reveal"><div class="icon">🌐</div><h3>HTML</h3></div>
-    <div class="skill reveal"><div class="icon">🎨</div><h3>CSS</h3></div>
-    <div class="skill reveal"><div class="icon">📉</div><h3>Data Analytics</h3></div>
-    <div
+<section id="projects">
+    <div class="title">
+        <h2>Project</h2>
+        <p>Featured work</p>
+    </div>
+
+    <div class="card project">
+        <h3>Superstore Sales & Profit Analysis</h3>
+
+        <p class="muted">
+            An analytics project focused on understanding sales,
+            profit, regional performance, discounts and What-If
+            discount scenarios using data analysis and Power BI.
+        </p>
+
+        <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Data Analysis</span>
+        </div>
+
+        <a
+            class="btn"
+            href="https://github.com/Prasanna-shree"
+            target="_blank">
+            View GitHub
+        </a>
+    </div>
+</section>
+
+<section id="certifications">
+    <div class="title">
+        <h2>Certifications</h2>
+        <p>Continuous learning</p>
+    </div>
+
+    <div class="cert-grid">
+
+        <div class="card cert">
+            <h3>Google Data Analytics</h3>
+            <p class="muted">Google · Coursera</p>
+
+            <a
+                href="https://www.coursera.org/account/accomplishments/specialization/HD2WOQVAGG4Q"
+                target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>Data Analysis and Visualization using Power BI</h3>
+            <p class="muted">Microsoft · Coursera</p>
+
+            <a
+                href="https://www.coursera.org/account/accomplishments/records/5IZPOQD9ZKJA"
+                target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>Advanced Data Analysis with Generative AI</h3>
+            <p class="muted">Microsoft · Coursera</p>
+
+            <a
+                href="https://www.coursera.org/account/accomplishments/records/U4DJYF4DAGK6"
+                target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>SAP Technology Consultant</h3>
+            <p class="muted">SAP · Coursera</p>
+
+            <a
+                href="https://www.coursera.org/account/accomplishments/specialization/05VU15N5O9QL"
+                target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="title">
+        <h2>Connect With Me</h2>
+        <p>Let's connect and build something meaningful.</p>
+    </div>
+
+    <div class="contact">
+
+        <a
+            class="btn"
+            href="mailto:prasannaallimuthu@gmail.com">
+            Email Me
+        </a>
+
+        <div class="socials">
+
+            <a
+                href="https://wa.me/919360432658"
+                target="_blank">
+                WhatsApp
+            </a>
+
+            <a
+                href="https://github.com/Prasanna-shree"
+                target="_blank">
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/prasanna-shree-796903370"
+                target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Prasanna Shree · Aspiring Data Analyst
+</footer>
+
+</body>
+</html>
