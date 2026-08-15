@@ -1,13 +1,587 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Prasanna Shree</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prasanna Shree | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #070b16;
+    color: #f5f7ff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 7%;
+    background: rgba(7, 11, 22, 0.85);
+    border-bottom: 1px solid #20283a;
+    text-align: center;
+}
+
+nav a {
+    color: #aab4c8;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #61ddff;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero small {
+    color: #61ddff;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 100px);
+    margin: 15px 0;
+    letter-spacing: -4px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #61ddff, #8b7cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: 27px;
+    color: #d3d9e5;
+    font-weight: normal;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 25px auto;
+    color: #8f9bb1;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 6px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #29354c;
+}
+
+.primary {
+    background: linear-gradient(100deg, #087ea9, #6654c9);
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* SECTIONS */
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title span {
+    color: #61ddff;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.section-title p {
+    color: #7f8aa0;
+}
+
+/* CARDS */
+
+.card {
+    background: #101727;
+    border: 1px solid #202b40;
+    border-radius: 22px;
+    padding: 35px;
+    margin: 20px auto;
+}
+
+.card h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #9ba6ba;
+    line-height: 1.9;
+}
+
+.accent {
+    color: #61ddff;
+    margin-bottom: 5px;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.skill {
+    padding: 14px 20px;
+    background: #101727;
+    border: 1px solid #273249;
+    border-radius: 25px;
+    color: #c4ccda;
+}
+
+.skill:hover {
+    border-color: #61ddff;
+    color: #61ddff;
+}
+
+/* PROJECT */
+
+.project {
+    border-left: 4px solid #61ddff;
+}
+
+.tags {
+    margin-top: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 7px 13px;
+    margin: 4px;
+    border-radius: 20px;
+    background: #17283b;
+    color: #61ddff;
+    font-size: 13px;
+}
+
+/* CERTIFICATIONS */
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cert a {
+    display: inline-block;
+    margin-top: 18px;
+    color: #61ddff;
+    text-decoration: none;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101727;
+    border: 1px solid #273249;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social:hover {
+    color: #61ddff;
+    border-color: #61ddff;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #20283a;
+    color: #68748b;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav a {
+        margin: 0 5px;
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+}
+</style>
 </head>
+
 <body>
-  <h1>Prasanna Shree</h1>
-  <p>Aspiring Data Analyst</p>
-  <p>About Me</p>
-  <p>Web Development Intern</p>
-  <p>Certifications</p>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#internship">Internship</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <small>HELLO, I'M</small>
+
+        <h1>
+            <span class="gradient">Prasanna Shree</span>
+        </h1>
+
+        <h2>Aspiring Data Analyst</h2>
+
+        <p>
+            I’m passionate about exploring data, discovering patterns
+            and transforming information into meaningful insights
+            through analytics and visualization.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">
+                Explore My Work
+            </a>
+
+            <a href="resume.pdf" class="btn" download>
+                Download Resume
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="section-title">
+        <span>WHO I AM</span>
+        <h2>About Me</h2>
+        <p>Aspiring to turn data into meaningful insights.</p>
+    </div>
+
+    <div class="card">
+
+        <p>
+            I am an aspiring data analyst and BCA graduate with a
+            strong interest in data analytics, visualization and
+            technology. I enjoy exploring datasets, identifying
+            patterns and presenting information in a clear and
+            meaningful way.
+        </p>
+
+        <br>
+
+        <p>
+            My learning journey includes SQL, PostgreSQL, Power BI,
+            Python, Tableau and Excel. I am continuously developing
+            my analytical skills through certifications and
+            practical projects, with a particular interest in
+            dashboards, business insights and data visualization.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="internship">
+
+    <div class="section-title">
+        <span>EXPERIENCE</span>
+        <h2>Internship</h2>
+        <p>My first practical experience in technology.</p>
+    </div>
+
+    <div class="card">
+
+        <h3>Web Development Intern</h3>
+
+        <div class="accent">
+            8Queens Software Technologies
+        </div>
+
+        <p>
+            June 1, 2024 — July 1, 2024
+        </p>
+
+        <br>
+
+        <p>
+            During my internship, I gained practical exposure to
+            web development and learned how the different layers
+            of a website work together to create a functional
+            user experience.
+        </p>
+
+        <br>
+
+        <p>
+            I worked with HTML to structure web pages, CSS to
+            create layouts and styling, and JavaScript to
+            understand interactive behaviour. This experience
+            helped me strengthen my understanding of front-end
+            development and gave me hands-on exposure to turning
+            a website concept into an actual web page.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <div class="section-title">
+        <span>MY TOOLKIT</span>
+        <h2>Skills</h2>
+        <p>Technologies and areas I work with.</p>
+    </div>
+
+    <div class="skills">
+
+        <div class="skill">SQL</div>
+        <div class="skill">PostgreSQL</div>
+        <div class="skill">Power BI</div>
+        <div class="skill">Python</div>
+        <div class="skill">Tableau</div>
+        <div class="skill">Java</div>
+        <div class="skill">Excel</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">Data Analytics</div>
+        <div class="skill">Data Visualization</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">SAP</div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <div class="section-title">
+        <span>SELECTED WORK</span>
+        <h2>Featured Project</h2>
+        <p>My current analytics project.</p>
+    </div>
+
+    <div class="card project">
+
+        <h3>Superstore Sales & Profit Analysis</h3>
+
+        <p>
+            A data analytics project focused on analysing sales,
+            profit, regional performance and discount-related
+            patterns using business data and interactive
+            visualization.
+        </p>
+
+        <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Visualization</span>
+        </div>
+
+        <div class="buttons" style="text-align:left">
+            <a
+                href="https://github.com/Prasanna-shree"
+                target="_blank"
+                class="btn primary">
+                View Project
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="certifications">
+
+    <div class="section-title">
+        <span>CREDENTIALS</span>
+        <h2>Certifications</h2>
+        <p>Continuous learning and professional development.</p>
+    </div>
+
+    <div class="cert-grid">
+
+        <div class="card cert">
+            <h3>Google Data Analytics</h3>
+            <p>Google · Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/HD2WOQVAGG4Q" target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>Data Analysis and Visualization using Power BI</h3>
+            <p>Microsoft · Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/records/5IZPOQD9ZKJA" target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>Advanced Data Analysis with Generative AI</h3>
+            <p>Microsoft · Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/records/U4DJYF4DAGK6" target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+        <div class="card cert">
+            <h3>SAP Technology Consultant</h3>
+            <p>SAP · Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/05VU15N5O9QL" target="_blank">
+                View Credential ↗
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="section-title">
+        <span>GET IN TOUCH</span>
+        <h2>Let's Connect</h2>
+        <p>Feel free to connect with me.</p>
+    </div>
+
+    <div class="contact">
+
+        <div class="socials">
+
+            <a
+                class="social"
+                href="https://wa.me/919360432658"
+                target="_blank"
+                title="WhatsApp">
+                ☎
+            </a>
+
+            <a
+                class="social"
+                href="https://github.com/Prasanna-shree"
+                target="_blank"
+                title="GitHub">
+                ◈
+            </a>
+
+            <a
+                class="social"
+                href="https://www.linkedin.com/in/prasanna-shree-796903370"
+                target="_blank"
+                title="LinkedIn">
+                in
+            </a>
+
+            <a
+                class="social"
+                href="mailto:prasannaallimuthu@gmail.com"
+                title="Email">
+                ✉
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Prasanna Shree
+</footer>
+
 </body>
 </html>
