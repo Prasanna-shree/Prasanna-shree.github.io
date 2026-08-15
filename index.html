@@ -6,476 +6,222 @@
 <title>Prasanna Shree | Aspiring Data Analyst</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+:root{
+    --bg:#050816;
+    --bg2:#0a1020;
+    --card:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.10);
+    --text:#f5f7ff;
+    --muted:#9ba6bc;
+    --cyan:#62ddff;
+    --purple:#8b7cff;
+    --pink:#f06bca;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #070b16;
-    color: white;
-    line-height: 1.6;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
 }
 
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 18px 7%;
-    background: #070b16;
-    border-bottom: 1px solid #20283b;
-    text-align: right;
+/* BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#00bfff;
+    filter:blur(130px);
+    opacity:.13;
+    top:-220px;
+    left:-180px;
+    z-index:-5;
+    animation:orb1 10s infinite alternate ease-in-out;
 }
 
-nav a {
-    color: #b9c3d8;
-    text-decoration: none;
-    margin-left: 22px;
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#8b5cff;
+    filter:blur(130px);
+    opacity:.14;
+    right:-200px;
+    bottom:-220px;
+    z-index:-5;
+    animation:orb2 12s infinite alternate ease-in-out;
 }
 
-nav a:hover {
-    color: #61dcff;
+@keyframes orb1{
+    to{transform:translate(150px,100px) scale(1.2)}
 }
 
-.hero {
-    min-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 20px;
+@keyframes orb2{
+    to{transform:translate(-130px,-100px) scale(1.2)}
 }
 
-.hero small {
-    color: #61dcff;
-    font-size: 18px;
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    padding:18px 5%;
+    background:rgba(5,8,22,.60);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.hero h1 {
-    font-size: 70px;
-    margin: 10px 0;
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
 }
 
-.hero h2 {
-    color: #aeb8cc;
-    font-weight: normal;
-    font-size: 28px;
+nav a{
+    color:#b9c2d4;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
 }
 
-.hero p {
-    max-width: 650px;
-    margin: 20px auto;
-    color: #929db4;
+nav a:hover{
+    color:var(--cyan);
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 22px;
-    margin: 10px 5px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: white;
-    background: #176b91;
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    padding:120px 20px 70px;
 }
 
-.btn:hover {
-    background: #238dbb;
+.hero-content{
+    position:relative;
+    z-index:5;
+    animation:heroIn 1.2s ease forwards;
 }
 
-section {
-    padding: 90px 8%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.title h2 {
-    font-size: 40px;
-}
-
-.title p {
-    color: #8994aa;
-}
-
-.card {
-    background: #101728;
-    border: 1px solid #222c42;
-    border-radius: 18px;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 900px;
-}
-
-.card h3 {
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-
-.accent {
-    color: #61dcff;
-    margin-bottom: 12px;
-}
-
-.muted {
-    color: #9ca7bd;
-}
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-}
-
-.skill {
-    padding: 12px 18px;
-    border: 1px solid #28344c;
-    border-radius: 25px;
-    background: #101728;
-    color: #cbd4e5;
-}
-
-.project {
-    border-left: 4px solid #61dcff;
-}
-
-.tags {
-    margin-top: 20px;
-}
-
-.tag {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 4px;
-    border-radius: 15px;
-    background: #17283b;
-    color: #61dcff;
-    font-size: 13px;
-}
-
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.cert a {
-    display: inline-block;
-    margin-top: 15px;
-    color: #61dcff;
-    text-decoration: none;
-}
-
-.contact {
-    text-align: center;
-}
-
-.socials {
-    margin-top: 25px;
-}
-
-.socials a {
-    color: white;
-    text-decoration: none;
-    margin: 8px;
-    padding: 12px 18px;
-    border: 1px solid #29344a;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #68748c;
-    border-top: 1px solid #20283b;
-}
-
-@media(max-width:700px) {
-    nav {
-        text-align: center;
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
     }
-
-    nav a {
-        display: inline-block;
-        margin: 5px 7px;
-        font-size: 13px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .hero h2 {
-        font-size: 21px;
-    }
-
-    .cert-grid {
-        grid-template-columns: 1fr;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
-</style>
-</head>
 
-<body>
+.hello{
+    color:var(--cyan);
+    letter-spacing:3px;
+    font-size:14px;
+    margin-bottom:20px;
+}
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#internship">Internship</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-</nav>
+.hero h1{
+    font-size:clamp(55px,10vw,110px);
+    line-height:.95;
+    letter-spacing:-5px;
+    margin-bottom:20px;
+}
 
-<section class="hero" id="home">
-    <div>
-        <small>HELLO, I'M</small>
+.gradient{
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--purple),
+        var(--pink),
+        var(--cyan)
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 5s infinite alternate;
+}
 
-        <h1>Prasanna Shree</h1>
+@keyframes gradientMove{
+    to{background-position:100%}
+}
 
-        <h2>Aspiring Data Analyst</h2>
+.hero h2{
+    font-size:25px;
+    color:#d5dae5;
+    font-weight:400;
+    min-height:35px;
+}
 
-        <p>
-            I enjoy transforming data into meaningful insights through
-            analytics, visualization and technology.
-        </p>
+.hero-description{
+    max-width:680px;
+    margin:25px auto;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:17px;
+}
 
-        <a class="btn" href="#projects">Explore My Work</a>
+.buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:28px;
+}
 
-        <a class="btn" href="resume.pdf" download>
-            Download Resume
-        </a>
-    </div>
-</section>
+.btn{
+    padding:14px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.35s;
+}
 
-<section id="about">
-    <div class="title">
-        <h2>About Me</h2>
-        <p>Turning data into meaningful insights</p>
-    </div>
+.primary{
+    color:#fff;
+    background:linear-gradient(
+        100deg,
+        #009edc,
+        #795bea
+    );
+    box-shadow:0 0 35px #009edc22;
+}
 
-    <div class="card">
-        <p class="muted">
-            I am an aspiring data analyst and BCA graduate with a strong
-            interest in data analytics, visualization and technology.
-            I enjoy exploring data, identifying patterns and presenting
-            insights in a clear and meaningful way.
-        </p>
+.secondary{
+    color:#fff;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.035);
+}
 
-        <br>
+.btn:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 40px #0009;
+}
 
-        <p class="muted">
-            I am continuously developing my skills in SQL, PostgreSQL,
-            Power BI, Python, Excel and data visualization while building
-            practical projects and expanding my technical knowledge.
-        </p>
-    </div>
-</section>
+/* FLOATING HERO ELEMENTS */
 
-<section id="education">
-    <div class="title">
-        <h2>Education</h2>
-        <p>Academic background</p>
-    </div>
-
-    <div class="card">
-        <h3>Bachelor of Computer Applications (BCA)</h3>
-        <div class="accent">
-            Dr. MGR-Janaki College of Arts and Science for Women
-        </div>
-
-        <p class="muted">Graduated in 2025</p>
-    </div>
-</section>
-
-<section id="internship">
-    <div class="title">
-        <h2>Internship</h2>
-        <p>Professional experience</p>
-    </div>
-
-    <div class="card">
-        <h3>Web Development Intern</h3>
-
-        <div class="accent">
-            8Queens Software Technologies
-        </div>
-
-        <p class="muted">
-            Worked on web development and built a website using HTML,
-            CSS and JavaScript. Gained practical exposure to webpage
-            structure, styling, responsive design and interactive
-            web elements.
-        </p>
-
-        <p class="muted">
-            June 1, 2024 — July 1, 2024
-        </p>
-    </div>
-</section>
-
-<section id="skills">
-    <div class="title">
-        <h2>Skills</h2>
-        <p>Tools and technologies</p>
-    </div>
-
-    <div class="skills">
-        <span class="skill">SQL</span>
-        <span class="skill">PostgreSQL</span>
-        <span class="skill">Power BI</span>
-        <span class="skill">Python</span>
-        <span class="skill">Tableau</span>
-        <span class="skill">Java</span>
-        <span class="skill">Excel</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">Data Analytics</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">SAP</span>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="title">
-        <h2>Project</h2>
-        <p>Featured work</p>
-    </div>
-
-    <div class="card project">
-        <h3>Superstore Sales & Profit Analysis</h3>
-
-        <p class="muted">
-            An analytics project focused on understanding sales,
-            profit, regional performance, discounts and What-If
-            discount scenarios using data analysis and Power BI.
-        </p>
-
-        <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">Data Analysis</span>
-        </div>
-
-        <a
-            class="btn"
-            href="https://github.com/Prasanna-shree"
-            target="_blank">
-            View GitHub
-        </a>
-    </div>
-</section>
-
-<section id="certifications">
-    <div class="title">
-        <h2>Certifications</h2>
-        <p>Continuous learning</p>
-    </div>
-
-    <div class="cert-grid">
-
-        <div class="card cert">
-            <h3>Google Data Analytics</h3>
-            <p class="muted">Google · Coursera</p>
-
-            <a
-                href="https://www.coursera.org/account/accomplishments/specialization/HD2WOQVAGG4Q"
-                target="_blank">
-                View Credential ↗
-            </a>
-        </div>
-
-        <div class="card cert">
-            <h3>Data Analysis and Visualization using Power BI</h3>
-            <p class="muted">Microsoft · Coursera</p>
-
-            <a
-                href="https://www.coursera.org/account/accomplishments/records/5IZPOQD9ZKJA"
-                target="_blank">
-                View Credential ↗
-            </a>
-        </div>
-
-        <div class="card cert">
-            <h3>Advanced Data Analysis with Generative AI</h3>
-            <p class="muted">Microsoft · Coursera</p>
-
-            <a
-                href="https://www.coursera.org/account/accomplishments/records/U4DJYF4DAGK6"
-                target="_blank">
-                View Credential ↗
-            </a>
-        </div>
-
-        <div class="card cert">
-            <h3>SAP Technology Consultant</h3>
-            <p class="muted">SAP · Coursera</p>
-
-            <a
-                href="https://www.coursera.org/account/accomplishments/specialization/05VU15N5O9QL"
-                target="_blank">
-                View Credential ↗
-            </a>
-        </div>
-
-    </div>
-</section>
-
-<section id="contact">
-    <div class="title">
-        <h2>Connect With Me</h2>
-        <p>Let's connect and build something meaningful.</p>
-    </div>
-
-    <div class="contact">
-
-        <a
-            class="btn"
-            href="mailto:prasannaallimuthu@gmail.com">
-            Email Me
-        </a>
-
-        <div class="socials">
-
-            <a
-                href="https://wa.me/919360432658"
-                target="_blank">
-                WhatsApp
-            </a>
-
-            <a
-                href="https://github.com/Prasanna-shree"
-                target="_blank">
-                GitHub
-            </a>
-
-            <a
-                href="https://www.linkedin.com/in/prasanna-shree-796903370"
-                target="_blank">
-                LinkedIn
-            </a>
-
-        </div>
-    </div>
-</section>
-
-<footer>
-    © 2026 Prasanna Shree · Aspiring Data Analyst
-</footer>
-
-</body>
-</html>
+.float{
+    position:absolute;
+    padding:12px 17px;
+    border:1px solid rgba(255,255,255,.12);
+    background:
