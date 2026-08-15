@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Prasanna Shree | Data Analytics Portfolio</title>
+<title>Prasanna Shree | Aspiring Data Analyst</title>
 
 <style>
 *{
@@ -16,49 +16,46 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#070b17;
+    background:#050816;
     color:#fff;
     overflow-x:hidden;
 }
 
-/* Animated background */
-body::before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    top:-150px;
-    left:-150px;
-    background:radial-gradient(circle,#00b7ff55,transparent 70%);
-    filter:blur(30px);
-    animation:moveGlow 8s infinite alternate ease-in-out;
-    z-index:-2;
-}
+/* ---------- BACKGROUND ---------- */
 
+body::before,
 body::after{
     content:"";
     position:fixed;
-    width:500px;
-    height:500px;
-    right:-180px;
-    bottom:-150px;
-    background:radial-gradient(circle,#9b59ff55,transparent 70%);
-    filter:blur(30px);
-    animation:moveGlow2 10s infinite alternate ease-in-out;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.22;
     z-index:-2;
+    animation:float 10s infinite alternate ease-in-out;
 }
 
-@keyframes moveGlow{
-    from{transform:translate(0,0);}
-    to{transform:translate(180px,120px);}
+body::before{
+    background:#00bfff;
+    top:-150px;
+    left:-150px;
 }
 
-@keyframes moveGlow2{
-    from{transform:translate(0,0);}
-    to{transform:translate(-150px,-100px);}
+body::after{
+    background:#8b5cf6;
+    right:-150px;
+    bottom:-150px;
+    animation-delay:2s;
 }
 
-/* Navigation */
+@keyframes float{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(120px,80px) scale(1.2);}
+}
+
+/* ---------- NAVBAR ---------- */
+
 nav{
     position:fixed;
     top:0;
@@ -67,8 +64,8 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(7,11,23,.72);
-    backdrop-filter:blur(16px);
+    background:rgba(5,8,22,.72);
+    backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.08);
     z-index:1000;
 }
@@ -76,26 +73,27 @@ nav{
 .logo{
     font-size:22px;
     font-weight:bold;
-    color:#64d9ff;
+    color:#62dcff;
 }
 
 nav ul{
-    list-style:none;
     display:flex;
-    gap:28px;
+    list-style:none;
+    gap:25px;
 }
 
 nav a{
-    color:#d9dce7;
+    color:#d6d9e4;
     text-decoration:none;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#64d9ff;
+    color:#62dcff;
 }
 
-/* Hero */
+/* ---------- HERO ---------- */
+
 .hero{
     min-height:100vh;
     display:flex;
@@ -113,7 +111,7 @@ nav a:hover{
 @keyframes heroIn{
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(45px);
     }
     to{
         opacity:1;
@@ -121,41 +119,46 @@ nav a:hover{
     }
 }
 
-.small-title{
-    color:#64d9ff;
-    font-size:19px;
-    margin-bottom:18px;
+.hello{
+    color:#62dcff;
+    font-size:20px;
+    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:clamp(48px,8vw,88px);
+    font-size:clamp(50px,9vw,90px);
     line-height:1;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .gradient{
-    background:linear-gradient(90deg,#64d9ff,#8b7cff,#ff6ec7);
+    background:linear-gradient(
+        90deg,
+        #62dcff,
+        #8b7cff,
+        #ff6ec7
+    );
     background-size:200%;
     -webkit-background-clip:text;
     color:transparent;
-    animation:gradientMove 4s infinite alternate;
+    animation:gradient 4s infinite alternate;
 }
 
-@keyframes gradientMove{
+@keyframes gradient{
     from{background-position:0%;}
     to{background-position:100%;}
 }
 
 .typing{
+    min-height:36px;
     font-size:25px;
-    color:#c6ccda;
-    min-height:35px;
+    color:#c5cad8;
 }
 
-.hero-description{
+.hero p{
     max-width:680px;
     margin:25px auto;
-    color:#9da6ba;
+    color:#9ca5ba;
     line-height:1.8;
     font-size:17px;
 }
@@ -163,17 +166,18 @@ nav a:hover{
 .buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
     flex-wrap:wrap;
+    gap:15px;
     margin-top:30px;
 }
 
 .btn{
+    display:inline-block;
     padding:13px 25px;
     border-radius:30px;
     text-decoration:none;
-    transition:.35s;
     font-weight:bold;
+    transition:.35s;
 }
 
 .primary{
@@ -183,7 +187,7 @@ nav a:hover{
 }
 
 .secondary{
-    border:1px solid #46516b;
+    border:1px solid #46516c;
     color:white;
 }
 
@@ -192,7 +196,8 @@ nav a:hover{
     box-shadow:0 12px 35px #0008;
 }
 
-/* Sections */
+/* ---------- SECTIONS ---------- */
+
 section{
     padding:100px 8%;
 }
@@ -208,10 +213,11 @@ section{
 }
 
 .section-title p{
-    color:#8f98ad;
+    color:#8992a8;
 }
 
-/* About */
+/* ---------- ABOUT ---------- */
+
 .about{
     max-width:850px;
     margin:auto;
@@ -221,17 +227,98 @@ section{
     font-size:17px;
 }
 
-/* Skills */
+/* ---------- EDUCATION ---------- */
+
+.education-card{
+    max-width:850px;
+    margin:auto;
+    padding:35px;
+    text-align:center;
+    border-radius:22px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.4s;
+}
+
+.education-card:hover{
+    transform:translateY(-8px);
+    border-color:#62dcff66;
+    box-shadow:0 20px 50px #0007;
+}
+
+.education-card h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.education-card p{
+    color:#9ba4b8;
+    line-height:1.8;
+}
+
+.year{
+    display:inline-block;
+    margin-top:15px;
+    color:#62dcff;
+}
+
+/* ---------- INTERNSHIP ---------- */
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+    border-left:2px solid #62dcff55;
+    padding-left:30px;
+}
+
+.internship{
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.4s;
+}
+
+.internship:hover{
+    transform:translateX(8px);
+    border-color:#62dcff66;
+    box-shadow:0 20px 50px #0007;
+}
+
+.internship h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.internship .company{
+    color:#62dcff;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.internship p{
+    color:#9ca5ba;
+    line-height:1.8;
+}
+
+.date{
+    margin-top:15px;
+    color:#858ea3;
+    font-size:14px;
+}
+
+/* ---------- SKILLS ---------- */
+
 .skills{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:18px;
 }
 
 .skill{
-    padding:28px 20px;
+    padding:25px 15px;
     text-align:center;
     border-radius:20px;
     background:rgba(255,255,255,.045);
@@ -241,26 +328,22 @@ section{
 }
 
 .skill:hover{
-    transform:translateY(-12px) rotateX(4deg);
-    border-color:#64d9ff88;
-    box-shadow:0 15px 45px #00aaff18;
+    transform:translateY(-10px) scale(1.03);
+    border-color:#62dcff77;
+    box-shadow:0 15px 40px #00aaff18;
 }
 
 .skill-icon{
-    font-size:38px;
-    margin-bottom:12px;
+    font-size:35px;
+    margin-bottom:10px;
 }
 
 .skill h3{
-    margin-bottom:7px;
+    font-size:17px;
 }
 
-.skill p{
-    color:#8992a7;
-    font-size:14px;
-}
+/* ---------- PROJECT ---------- */
 
-/* Project */
 .project-wrapper{
     max-width:900px;
     margin:auto;
@@ -269,43 +352,26 @@ section{
 .project{
     padding:40px;
     border-radius:25px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.09),
-        rgba(255,255,255,.025)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
     border:1px solid rgba(255,255,255,.1);
     transition:.5s;
     position:relative;
     overflow:hidden;
 }
 
-.project::before{
-    content:"";
-    position:absolute;
-    width:200px;
-    height:200px;
-    background:#00b7ff;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:0;
-    top:-100px;
-    right:-100px;
-    transition:.5s;
-}
-
 .project:hover{
     transform:translateY(-12px);
-    border-color:#64d9ff77;
+    border-color:#62dcff77;
     box-shadow:0 25px 70px #0008;
 }
 
-.project:hover::before{
-    opacity:.25;
-}
-
 .project-number{
-    color:#64d9ff;
+    color:#62dcff;
     font-size:13px;
     font-weight:bold;
 }
@@ -330,8 +396,8 @@ section{
 .tag{
     padding:7px 13px;
     border-radius:20px;
-    background:#64d9ff12;
-    color:#64d9ff;
+    background:#62dcff12;
+    color:#62dcff;
     font-size:13px;
 }
 
@@ -348,22 +414,101 @@ section{
 
 .project-button:hover{
     transform:translateY(-4px);
-    box-shadow:0 10px 30px #00aaff33;
+    box-shadow:0 10px 30px #00aaff44;
 }
 
-/* Contact */
+/* ---------- CERTIFICATIONS ---------- */
+
+.certifications{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.cert{
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    transition:.4s;
+}
+
+.cert:hover{
+    transform:translateY(-9px);
+    border-color:#62dcff66;
+    box-shadow:0 18px 45px #0007;
+}
+
+.cert h3{
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.cert p{
+    color:#8f98ad;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.credential{
+    display:inline-block;
+    margin-top:18px;
+    color:#62dcff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.credential:hover{
+    text-decoration:underline;
+}
+
+/* ---------- CONTACT ---------- */
+
 .contact{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
     text-align:center;
 }
 
 .contact p{
-    color:#9ba4b8;
+    color:#9ca5ba;
     line-height:1.8;
 }
 
-/* Reveal animation */
+.socials{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:30px;
+}
+
+.social{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    transition:.4s;
+}
+
+.social:hover{
+    transform:translateY(-7px) rotate(8deg);
+    background:#62dcff18;
+    border-color:#62dcff;
+    box-shadow:0 0 25px #62dcff33;
+}
+
+/* ---------- REVEAL ---------- */
+
 .reveal{
     opacity:0;
     transform:translateY(45px);
@@ -375,7 +520,8 @@ section{
     transform:translateY(0);
 }
 
-/* Footer */
+/* ---------- FOOTER ---------- */
+
 footer{
     text-align:center;
     padding:30px;
@@ -383,7 +529,8 @@ footer{
     border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* Mobile */
+/* ---------- MOBILE ---------- */
+
 @media(max-width:700px){
 
     nav{
@@ -409,40 +556,58 @@ footer{
     .project{
         padding:28px;
     }
+
+    .timeline{
+        padding-left:20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-    <div class="logo">Prasanna Shree</div>
+
+    <div class="logo">
+        Prasanna Shree
+    </div>
 
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#internship">Internship</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+
 </nav>
 
+
 <!-- HERO -->
+
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <div class="small-title">Hello, I'm</div>
+        <div class="hello">
+            Hello, I'm
+        </div>
 
         <h1>
-            Prasanna <span class="gradient">Shree</span>
+            Prasanna
+            <span class="gradient">Shree</span>
         </h1>
 
         <div class="typing" id="typing"></div>
 
-        <p class="hero-description">
-            I turn data into meaningful insights through analytics,
-            visualization and technology.
+        <p>
+            Passionate about transforming data into meaningful insights
+            through analytics, visualization and technology.
         </p>
 
         <div class="buttons">
@@ -451,8 +616,10 @@ footer{
                 Explore My Work
             </a>
 
-            <a href="#contact" class="btn secondary">
-                Connect With Me
+            <a href="resume.pdf"
+               download
+               class="btn secondary">
+                Download Resume
             </a>
 
         </div>
@@ -461,290 +628,33 @@ footer{
 
 </section>
 
+
 <!-- ABOUT -->
+
 <section id="about">
 
     <div class="section-title reveal">
+
         <h2>About Me</h2>
-        <p>Turning data into meaningful stories</p>
+
+        <p>
+            Turning data into meaningful stories
+        </p>
+
     </div>
 
     <div class="about reveal">
 
         <p>
-            I am an aspiring data analyst passionate about discovering
-            patterns hidden inside data and transforming them into
-            clear business insights.
+            I am an aspiring data analyst with a background in
+            Computer Applications and a strong interest in turning
+            raw data into clear, meaningful insights.
         </p>
 
         <br>
 
         <p>
-            I enjoy working with SQL, Power BI, Python and data
-            visualization while continuously building practical
-            projects to strengthen my analytics skills.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-
-    <div class="section-title reveal">
-        <h2>Skills & Technologies</h2>
-        <p>Tools I'm learning and working with</p>
-    </div>
-
-    <div class="skills">
-
-        <div class="skill reveal">
-            <div class="skill-icon">🗄️</div>
-            <h3>SQL</h3>
-            <p>Data Analysis</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">🐘</div>
-            <h3>PostgreSQL</h3>
-            <p>Database</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">📊</div>
-            <h3>Power BI</h3>
-            <p>Dashboards</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">🐍</div>
-            <h3>Python</h3>
-            <p>Data Analysis</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">📈</div>
-            <h3>Tableau</h3>
-            <p>Visualization</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">☕</div>
-            <h3>Java</h3>
-            <p>Programming</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">🌐</div>
-            <h3>HTML</h3>
-            <p>Web Development</p>
-        </div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">🎨</div>
-            <h3>CSS</h3>
-            <p>Web Design</p>
-        </div>
-
-        <div class="skill reveal">
-    <div class="skill-icon">📗</div>
-    <h3>Excel</h3>
-    <p>Data Analysis</p>
-</div>
-
-        <div class="skill reveal">
-            <div class="skill-icon">💻</div>
-            <h3>GitHub</h3>
-            <p>Version Control</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROJECT -->
-<section id="projects">
-
-    <div class="section-title reveal">
-        <h2>Featured Project</h2>
-        <p>My current analytics project</p>
-    </div>
-
-    <div class="project-wrapper">
-
-        <div class="project reveal">
-
-            <div class="project-number">
-                PROJECT 01
-            </div>
-
-            <h3>
-                Superstore Sales & Profit Analysis
-            </h3>
-
-            <p>
-                An end-to-end data analytics project using SQL,
-                PostgreSQL and Power BI to analyze sales performance,
-                profitability, regional performance, discount impact
-                and What-If discount scenarios.
-            </p>
-
-            <div class="tags">
-                <span class="tag">SQL</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">Power BI</span>
-                <span class="tag">Data Analytics</span>
-                <span class="tag">What-If Analysis</span>
-            </div>
-
-            <a
-                class="project-button"
-                href="https://github.com/Prasanna-shree/superstore-sales-profit-analysis"
-                target="_blank"
-            >
-                View Project ↗
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-
-    <div class="section-title reveal">
-        <h2>Connect With Me</h2>
-        <p>Let's connect and build something meaningful</p>
-    </div>
-
-    <div class="contact reveal">
-
-        <p>
-            I'm always interested in learning, building projects
-            and connecting with people interested in data and technology.
-        </p>
-
-        <div class="buttons">
-
-            <a
-                href="mailto:prasannaallimuthu@gmail.com"
-                class="btn primary"
-            >
-                Email Me
-            </a>
-
-            <a
-                href="https://github.com/Prasanna-shree"
-                target="_blank"
-                class="btn secondary"
-            >
-                GitHub
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 Prasanna Shree • Data Analytics Portfolio
-</footer>
-
-<script>
-
-/* Typing animation */
-
-const words = [
-    "Data Analyst",
-    "Power BI Enthusiast",
-    "SQL Learner",
-    "Data Visualization Enthusiast"
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-const typing = document.getElementById("typing");
-
-function typeEffect(){
-
-    const word = words[wordIndex];
-
-    if(!deleting){
-
-        typing.textContent =
-            word.substring(0,charIndex + 1);
-
-        charIndex++;
-
-        if(charIndex === word.length){
-
-            deleting = true;
-
-            setTimeout(typeEffect,1200);
-            return;
-        }
-
-    }else{
-
-        typing.textContent =
-            word.substring(0,charIndex - 1);
-
-        charIndex--;
-
-        if(charIndex === 0){
-
-            deleting = false;
-
-            wordIndex++;
-
-            if(wordIndex >= words.length){
-                wordIndex = 0;
-            }
-        }
-    }
-
-    setTimeout(
-        typeEffect,
-        deleting ? 55 : 100
-    );
-}
-
-typeEffect();
-
-
-/* Scroll reveal */
-
-function reveal(){
-
-    const elements =
-        document.querySelectorAll(".reveal");
-
-    elements.forEach(element => {
-
-        const top =
-            element.getBoundingClientRect().top;
-
-        if(top < window.innerHeight - 80){
-
-            element.classList.add("active");
-
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-</script>
-
-</body>
-</html>
+            I enjoy working with SQL, PostgreSQL, Power BI, Python,
+            Excel and data visualization tools. I am continuously
+            developing my technical and analytical skills through
+            hands-on
